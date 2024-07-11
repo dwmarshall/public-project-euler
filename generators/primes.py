@@ -1,4 +1,6 @@
-def sequence():
+from typing import Iterator
+
+def sequence() -> Iterator[int]:
     D = {}
     q = 2
     while True:
