@@ -1,3 +1,4 @@
+from generators import primes
 from typing import List
 
 def gcd(u: int, v: int) -> int:
@@ -26,3 +27,15 @@ def lcm(n: List[int]) -> int:
     else:
         subLCM = lcm(n[1:])
         return n[0] * subLCM // gcd(n[0], subLCM)
+
+def number_of_divisors(n: int) -> int:
+    divisors = 1
+    prime = primes.sequence()
+    while (p := next(prime)) <= n:
+        exponent = 0
+        while n % p == 0:
+            n //= p
+            exponent += 1
+        if exponent:
+            divisors *= exponent + 1
+    return divisors
