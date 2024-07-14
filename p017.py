@@ -1,8 +1,41 @@
 N = 1000
 
-digit_letters = [0, 3, 3, 5, 4, 4, 3, 5, 5, 4]
-teen_letters = [3, 6, 6, 8, 8, 7, 7, 9, 8, 8]
-tens_letters = [0, 0, 6, 6, 5, 5, 5, 7, 6, 6]
+digit_letters = [
+    len(""),
+    len("one"),
+    len("two"),
+    len("three"),
+    len("four"),
+    len("five"),
+    len("six"),
+    len("seven"),
+    len("eight"),
+    len("nine"),
+]
+teen_letters = [
+    len("ten"),
+    len("eleven"),
+    len("twelve"),
+    len("thirteen"),
+    len("fourteen"),
+    len("fifteen"),
+    len("sixteen"),
+    len("seventeen"),
+    len("eighteen"),
+    len("nineteen"),
+]
+tens_letters = [
+    len(""), # zero tens
+    len(""), # ten already in teen_letters
+    len("twenty"),
+    len("thirty"),
+    len("forty"),
+    len("fifty"),
+    len("sixty"),
+    len("seventy"),
+    len("eighty"),
+    len("ninety"),
+]
 
 def letters(n):
     if n < 10:
@@ -12,12 +45,12 @@ def letters(n):
     elif n < 100:
         return tens_letters[n // 10] + digit_letters[n % 10]
     elif n < 1000:
-        count = digit_letters[n // 100] + 7
+        count = digit_letters[n // 100] + len("hundred")
         if n % 100 > 0:
-            count += 3 + letters(n % 100)
+            count += len("and") + letters(n % 100)
         return count
     else:
-        return 11 # 'one thousand'
+        return len("onethousand")
 
 sum = 0
 
