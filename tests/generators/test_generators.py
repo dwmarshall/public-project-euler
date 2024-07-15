@@ -3,8 +3,14 @@ import generators.fibonacci
 import generators.polygonal
 
 
-def test_fibonacci():
+def test_fibonacci_default():
     f = generators.fibonacci.sequence()
+    first_ten = [next(f) for _ in range(10)]
+    assert first_ten == [1, 1, 2, 3, 5, 8, 13, 21, 34, 55]
+
+
+def test_fibonacci_different():
+    f = generators.fibonacci.sequence(1, 2)
     first_ten = [next(f) for _ in range(10)]
     assert first_ten == [1, 2, 3, 5, 8, 13, 21, 34, 55, 89]
 

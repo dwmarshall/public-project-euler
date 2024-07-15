@@ -1,8 +1,8 @@
 from typing import Iterator
 
 
-def sequence() -> Iterator[int]:
-    F = (1, 1)
+def sequence(first: int = 1, second: int = 1) -> Iterator[int]:
+    F = (first, second)
     while True:
-        yield F[1]
+        yield F[0]
         F = (F[1], sum(F))
