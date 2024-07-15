@@ -57,6 +57,7 @@ def prime_divisors(n: int) -> List[int]:
     a list of the prime divisors, such as
     220 => [2, 2, 5, 11]
     """
+    assert n > 0
     for i in range(2, int(sqrt(n) + 1)):
         d, m = divmod(n, i)
         if not m:
@@ -82,8 +83,8 @@ def proper_divisors(n: int) -> set:
     The set of proper divisors of a number,
     e.g. 220 => {1, 2, 4, 5, 10, 11, 20, 22, 44, 55, 110}
     """
+    assert n > 0
     factors_dict = prime_factors(n)
-    print(factors_dict)
     factors, occurrences = factors_dict.keys(), factors_dict.values()
     multiplicities = product(*(range(oc + 1) for oc in occurrences))
     divs = {
