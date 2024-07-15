@@ -1,5 +1,6 @@
 from functools import cache
 
+
 @cache
 def collatz(n: int) -> int:
     if n == 1:
@@ -8,6 +9,7 @@ def collatz(n: int) -> int:
         return 1 + collatz(3 * n + 1)
     else:
         return 1 + collatz(n // 2)
+
 
 maxTerms = 0
 maxN = 0

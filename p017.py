@@ -25,8 +25,8 @@ teen_letters = [
     len("nineteen"),
 ]
 tens_letters = [
-    len(""), # zero tens
-    len(""), # ten already in teen_letters
+    len(""),  # zero tens
+    len(""),  # ten already in teen_letters
     len("twenty"),
     len("thirty"),
     len("forty"),
@@ -36,6 +36,7 @@ tens_letters = [
     len("eighty"),
     len("ninety"),
 ]
+
 
 def letters(n):
     if n < 10:
@@ -52,9 +53,10 @@ def letters(n):
     else:
         return len("onethousand")
 
+
 sum = 0
 
-for i in range(1,N+1):
+for i in range(1, N + 1):
     sum += letters(i)
 
 print(sum)

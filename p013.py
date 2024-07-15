@@ -101,6 +101,6 @@ N = """\
 53503534226472524250874054075591789781264330331690\
 """
 
-L = [int(x) for x in N.split('\n')]
+L = [int(x) for x in N.split("\n")]
 S = sum(L)
 print(str(S)[:10])

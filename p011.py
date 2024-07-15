@@ -1,13 +1,15 @@
 from typing import List
 import math
 
+
 def maxProduct(iterable: List[int]) -> int:
     if len(iterable) < 4:
         return 0
     elif len(iterable) == 4:
         return math.prod(iterable)
     else:
-        return max(math.prod(iterable[i:i + 4]) for i in range(len(iterable) - 4))
+        return max(math.prod(iterable[i : i + 4]) for i in range(len(iterable) - 4))
+
 
 input_string = """\
 08 02 22 97 38 15 00 40 00 75 04 05 07 78 52 12 50 77 91 08
@@ -33,9 +35,9 @@ input_string = """\
 """
 
 grid = []
-lines = input_string.split('\n')
+lines = input_string.split("\n")
 for i in range(len(lines)):
-    numbers = [int(x) for x in lines[i].split(' ')]
+    numbers = [int(x) for x in lines[i].split(" ")]
     grid.append(numbers)
 
 answer = 0

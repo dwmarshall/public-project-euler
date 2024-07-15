@@ -1,5 +1,6 @@
 from typing import Iterator
 
+
 def sequence() -> Iterator[int]:
     D = {}
     q = 2
@@ -9,6 +10,6 @@ def sequence() -> Iterator[int]:
             D[q * q] = [q]
         else:
             for p in D[q]:
-                D.setdefault(p+q,[]).append(p)
+                D.setdefault(p + q, []).append(p)
             del D[q]
         q += 1

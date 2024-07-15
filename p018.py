@@ -1,14 +1,14 @@
 from functools import cache
 
-R="""1
+R = """1
 2 3"""
 
-S="""3
+S = """3
 7 4
 2 4 6
 8 5 9 3"""
 
-T="""75
+T = """75
 95 64
 17 47 82
 18 35 87 10
@@ -25,21 +25,16 @@ T="""75
 04 62 98 27 23 09 70 98 73 93 38 53 60 04 23"""
 
 triangle = []
-for row in T.split('\n'):
-    triangle.append([int(x) for x in row.split(' ')])
+for row in T.split("\n"):
+    triangle.append([int(x) for x in row.split(" ")])
+
 
 @cache
 def dfs(row: int, column: int) -> int:
     if row == len(triangle) - 1:
         return triangle[row][column]
 
-    return (
-        triangle[row][column] +
-        max(
-            dfs(row + 1, column),
-            dfs(row + 1, column + 1)
-        )
-    )
+    return triangle[row][column] + max(dfs(row + 1, column), dfs(row + 1, column + 1))
 
 
 print(dfs(0, 0))

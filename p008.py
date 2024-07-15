@@ -25,7 +25,7 @@ DIGITS = 13
 
 maxProduct = 0
 
-for segment in N.split('0'):
+for segment in N.split("0"):
     if len(segment) < DIGITS:
         continue
     digits = [int(c) for c in segment]
