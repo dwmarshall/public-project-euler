@@ -1,9 +1,11 @@
 from functools import cache
 from libraries.numeric import proper_divisors
 
+
 @cache
 def divisor_sum(n: int) -> int:
     return sum(proper_divisors(n))
+
 
 total_sum = 0
 

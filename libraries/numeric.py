@@ -88,7 +88,7 @@ def proper_divisors(n: int) -> set:
     factors, occurrences = factors_dict.keys(), factors_dict.values()
     multiplicities = product(*(range(oc + 1) for oc in occurrences))
     divs = {
-        reduce(int.__mul__, (pf ** m for pf, m in zip(factors, multis)), 1)
+        reduce(int.__mul__, (pf**m for pf, m in zip(factors, multis)), 1)
         for multis in multiplicities
     }
     divs.discard(n)

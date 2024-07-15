@@ -29,6 +29,7 @@ def test_prime_factors():
     with pytest.raises(AssertionError):
         numeric.prime_factors(0)
 
+
 def test_proper_divisors():
     assert numeric.proper_divisors(220) == {1, 2, 4, 5, 10, 11, 20, 22, 44, 55, 110}
     assert sum(numeric.proper_divisors(220)) == 284
