@@ -2,7 +2,7 @@ from collections import Counter
 from generators import primes
 from functools import cache, reduce
 from itertools import product
-from math import sqrt
+from math import isqrt
 from typing import List
 
 # Divisors stuff comes from this page:
@@ -28,6 +28,15 @@ def gcd(u: int, v: int) -> int:
         t = u - v
 
     return u * multiplier
+
+
+def issquare(n: int) -> bool:
+    s = isqrt(n)
+    return s * s == n
+
+
+def istriangular(n: int) -> bool:
+    return issquare(8 * n + 1)
 
 
 def lcm(n: List[int]) -> int:
@@ -58,7 +67,7 @@ def prime_divisors(n: int) -> List[int]:
     220 => [2, 2, 5, 11]
     """
     assert n > 0
-    for i in range(2, int(sqrt(n) + 1)):
+    for i in range(2, isqrt(n) + 1):
         d, m = divmod(n, i)
         if not m:
             return [i] + prime_divisors(d)

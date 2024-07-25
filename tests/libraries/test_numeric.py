@@ -6,6 +6,18 @@ def test_gcd():
     assert numeric.gcd(874, 1406) == 38
 
 
+def test_issquare():
+    assert not numeric.issquare(48)
+    assert numeric.issquare(49)
+    assert not numeric.issquare(50)
+
+
+def test_istriangular():
+    assert not numeric.istriangular(54)
+    assert numeric.istriangular(55)
+    assert not numeric.istriangular(56)
+
+
 def test_lcm():
     assert numeric.lcm([330, 225]) == 4950
     assert numeric.lcm([330, 75, 450, 11, 37]) == 183150
