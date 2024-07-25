@@ -6,6 +6,15 @@ def test_gcd():
     assert numeric.gcd(874, 1406) == 38
 
 
+def test_ispentagonal():
+    assert not numeric.ispentagonal(91)
+    assert numeric.ispentagonal(92)
+    assert not numeric.ispentagonal(93)
+
+    assert numeric.ispentagonal(1926)
+    assert not numeric.ispentagonal(1962)
+
+
 def test_issquare():
     assert not numeric.issquare(48)
     assert numeric.issquare(49)

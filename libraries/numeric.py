@@ -30,6 +30,14 @@ def gcd(u: int, v: int) -> int:
     return u * multiplier
 
 
+def ispentagonal(n: int) -> bool:
+    value = 24 * n + 1
+    s = isqrt(value)
+    if s * s != value:
+        return False
+    return s % 6 == 5
+
+
 def issquare(n: int) -> bool:
     s = isqrt(n)
     return s * s == n
