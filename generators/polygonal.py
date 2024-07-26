@@ -1,6 +1,14 @@
 from typing import Iterator
 
 
+def hexagonal_numbers() -> Iterator[int]:
+    h = n = 1
+    while True:
+        yield h
+        n += 1
+        h = n * (2 * n - 1)
+
+
 def triangular_numbers() -> Iterator[int]:
     t = n = 1
     while True:

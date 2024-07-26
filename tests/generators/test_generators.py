@@ -15,6 +15,12 @@ def test_fibonacci_different():
     assert first_ten == [1, 2, 3, 5, 8, 13, 21, 34, 55, 89]
 
 
+def test_hexagonal():
+    h = generators.polygonal.hexagonal_numbers()
+    first_ten = [next(h) for _ in range(10)]
+    assert first_ten == [1, 6, 15, 28, 45, 66, 91, 120, 153, 190]
+
+
 def test_pentagonal():
     p = generators.polygonal.pentagonal_numbers()
     first_ten = [next(p) for _ in range(10)]
