@@ -31,6 +31,13 @@ def test_prime():
     p = generators.primes.sequence()
     first_ten = [next(p) for _ in range(10)]
     assert first_ten == [2, 3, 5, 7, 11, 13, 17, 19, 23, 29]
+    for n in generators.primes.sequence():
+        if n == 56333:
+            assert True
+            break
+        if n > 56333:
+            assert False
+            break
 
 
 def test_triangular():

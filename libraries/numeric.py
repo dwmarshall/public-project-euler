@@ -3,10 +3,18 @@ from generators import primes
 from functools import cache, reduce
 from itertools import product
 from math import isqrt
-from typing import List
+from typing import Iterator, List
 
 # Divisors stuff comes from this page:
 # https://rosettacode.org/wiki/Proper_divisors#Python
+
+
+def digitize(n: int, base: int = 10) -> Iterator[int]:
+    if n == 0:
+        yield 0
+    while n > 0:
+        n, d = divmod(n, base)
+        yield d
 
 
 def gcd(u: int, v: int) -> int:

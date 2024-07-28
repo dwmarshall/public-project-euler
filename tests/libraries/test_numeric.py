@@ -2,6 +2,12 @@ from libraries import numeric
 import pytest
 
 
+def test_digitize():
+    assert list(numeric.digitize(0)) == [0]
+    assert list(numeric.digitize(123)) == [3, 2, 1]
+    assert list(numeric.digitize(10, 2)) == [0, 1, 0, 1]
+
+
 def test_gcd():
     assert numeric.gcd(874, 1406) == 38
 
