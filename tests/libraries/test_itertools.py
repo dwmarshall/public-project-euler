@@ -1,5 +1,4 @@
 import libraries
-import pytest
 
 import libraries.itertools
 
