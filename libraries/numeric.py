@@ -46,6 +46,7 @@ def ispentagonal(n: int) -> bool:
     return s % 6 == 5
 
 
+@cache
 def is_prime(n: int) -> bool:
     if n <= 1:
         return False
