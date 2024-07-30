@@ -15,10 +15,22 @@ def test_fibonacci_different():
     assert first_ten == [1, 2, 3, 5, 8, 13, 21, 34, 55, 89]
 
 
+def test_heptagonal():
+    h = generators.polygonal.heptagonal_numbers()
+    first_ten = [next(h) for _ in range(10)]
+    assert first_ten == [1, 7, 18, 34, 55, 81, 112, 148, 189, 235]
+
+
 def test_hexagonal():
     h = generators.polygonal.hexagonal_numbers()
     first_ten = [next(h) for _ in range(10)]
     assert first_ten == [1, 6, 15, 28, 45, 66, 91, 120, 153, 190]
+
+
+def test_octagonal():
+    o = generators.polygonal.octagonal_numbers()
+    first_ten = [next(o) for _ in range(10)]
+    assert first_ten == [1, 8, 21, 40, 65, 96, 133, 176, 225, 280]
 
 
 def test_pentagonal():
@@ -31,13 +43,12 @@ def test_prime():
     p = generators.primes.sequence()
     first_ten = [next(p) for _ in range(10)]
     assert first_ten == [2, 3, 5, 7, 11, 13, 17, 19, 23, 29]
-    for n in generators.primes.sequence():
-        if n == 56333:
-            assert True
-            break
-        if n > 56333:
-            assert False
-            break
+
+
+def test_square():
+    s = generators.polygonal.square_numbers()
+    first_ten = [next(s) for _ in range(10)]
+    assert first_ten == [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
 
 
 def test_triangular():
