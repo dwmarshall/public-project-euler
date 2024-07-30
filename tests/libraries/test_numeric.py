@@ -1,3 +1,5 @@
+from generators import primes
+from itertools import islice
 from libraries import numeric
 import pytest
 
@@ -19,6 +21,16 @@ def test_ispentagonal():
 
     assert numeric.ispentagonal(1926)
     assert not numeric.ispentagonal(1962)
+
+
+def test_is_prime():
+    P = set(islice(primes.sequence(), 1000))
+    for n in range(3, max(P), 2):
+        if n in P:
+            print(f"asserting that {n} is prime")
+            assert numeric.is_prime(n)
+        else:
+            assert not numeric.is_prime(n)
 
 
 def test_issquare():

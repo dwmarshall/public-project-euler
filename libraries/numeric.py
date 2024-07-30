@@ -46,6 +46,21 @@ def ispentagonal(n: int) -> bool:
     return s % 6 == 5
 
 
+def is_prime(n: int) -> bool:
+    if n <= 1:
+        return False
+    if n <= 3:
+        return True
+    if n % 2 == 0 or n % 3 == 0:
+        return False
+    k = 1
+    while (6 * k - 1) * (6 * k - 1) <= n:
+        if n % (6 * k - 1) == 0 or n % (6 * k + 1) == 0:
+            return False
+        k += 1
+    return True
+
+
 def issquare(n: int) -> bool:
     s = isqrt(n)
     return s * s == n
