@@ -1,7 +1,6 @@
-from collections import defaultdict
 from generators import primes
 from functools import cache
-from itertools import combinations, permutations, takewhile
+from itertools import combinations
 from libraries.numeric import is_prime
 
 
@@ -11,24 +10,26 @@ def prime_pair(a: int, b: int) -> bool:
 
 
 D = 5
-N = 9000
 
-prime_list = list(takewhile(lambda x: x < N, primes.sequence()))
+P = primes.sequence()
+
+prime_list = []
+while len(prime_list) < D:
+    prime_list.append(next(P))
 
 matching = [[] for _ in range(D + 1)]
+matching[1] = [(x,) for x in prime_list]
+matching[2] = [(x, y) for x, y in combinations(prime_list, 2) if prime_pair(x, y)]
 
-for a, b in combinations(prime_list[1:], 2):
-    if prime_pair(a, b):
-        matching[2].append((a, b))
-print(f"2:{len(matching[2])}")
+while True:
+    p = next(P)
+    for d in range(2, D + 1):
+        for t in matching[d - 1]:
+            if all(prime_pair(x, p) for x in t):
+                matching[d].append(t + (p,))
+    matching[1].append((p,))
+    if matching[D]:
+        print(matching[D])
+        break
 
-for d in range(3, D + 1):
-    for tuple in matching[d - 1]:
-        index = prime_list.index(tuple[-1])
-        for p in prime_list[index + 1 :]:
-            if all(prime_pair(x, p) for x in tuple):
-                matching[d].append(tuple + (p,))
-    print(f"{d}:{len(matching[d])}")
-
-print(matching[D])
-print(min(sum(t) for t in matching[D]))
+print(sum(matching[D][0]))
