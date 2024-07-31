@@ -33,10 +33,10 @@ def test_is_prime():
             assert not numeric.is_prime(n)
 
 
-def test_issquare():
-    assert not numeric.issquare(48)
-    assert numeric.issquare(49)
-    assert not numeric.issquare(50)
+def test_is_square():
+    assert not numeric.is_square(48)
+    assert numeric.is_square(49)
+    assert not numeric.is_square(50)
 
 
 def test_istriangular():

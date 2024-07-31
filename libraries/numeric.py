@@ -62,13 +62,13 @@ def is_prime(n: int) -> bool:
     return True
 
 
-def issquare(n: int) -> bool:
+def is_square(n: int) -> bool:
     s = isqrt(n)
     return s * s == n
 
 
 def istriangular(n: int) -> bool:
-    return issquare(8 * n + 1)
+    return is_square(8 * n + 1)
 
 
 def lcm(n: List[int]) -> int:
