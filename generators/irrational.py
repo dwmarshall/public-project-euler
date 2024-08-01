@@ -11,13 +11,19 @@ def convergents(iter: Iterator[int]) -> Iterator[Fraction]:
     """Expresses a series of partial quotients as a fraction"""
     n = Fraction(next(iter))
     yield n
-    terms = []
+    a0 = next(iter)
+    c0 = Fraction(1, a0)
+    yield n + c0
+    a1 = next(iter)
+    c1 = Fraction(1, a0 + Fraction(1, a1))
+    yield n + c1
     while True:
-        terms.append(next(iter))
-        x = 0
-        for b in terms[::-1]:
-            x = Fraction(1, b + x)
-        yield n + x
+        a2 = next(iter)
+        n2 = a2 * c1.numerator + c0.numerator
+        d2 = a2 * c1.denominator + c0.denominator
+        c2 = Fraction(n2, d2)
+        yield n + c2
+        c0, c1 = c1, c2
 
 
 def partial_quotients(f: float) -> Iterator[int]:
