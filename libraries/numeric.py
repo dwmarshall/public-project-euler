@@ -134,3 +134,13 @@ def proper_divisors(n: int) -> set:
     }
     divs.discard(n)
     return divs or ({1} if n != 1 else set())
+
+
+def totient(n: int) -> int:
+    if is_prime(n):
+        return n - 1
+    d = prime_factors(n)
+    result = 1
+    for k, v in d.items():
+        result *= k ** (v - 1) * (k - 1)
+    return result
