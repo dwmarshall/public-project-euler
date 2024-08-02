@@ -99,10 +99,23 @@ def prime_divisors(n: int) -> List[int]:
     220 => [2, 2, 5, 11]
     """
     assert n > 0
-    for i in range(2, isqrt(n) + 1):
-        d, m = divmod(n, i)
-        if not m:
-            return [i] + prime_divisors(d)
+
+    if n == 1:
+        return []
+    divisors = []
+    if n % 2 == 0:
+        while n % 2 == 0:
+            divisors.append(2)
+            n //= 2
+        return divisors + prime_divisors(n)
+
+    for i in range(3, isqrt(n) + 1, 2):
+        if n % i == 0:
+            while n % i == 0:
+                divisors.append(i)
+                n //= i
+            return divisors + prime_divisors(n)
+
     return [n]
 
 
@@ -137,10 +150,16 @@ def proper_divisors(n: int) -> set:
 
 
 def totient(n: int) -> int:
+    if n == 1:
+        return 1
     if is_prime(n):
         return n - 1
-    d = prime_factors(n)
-    result = 1
-    for k, v in d.items():
-        result *= k ** (v - 1) * (k - 1)
+    factors = prime_divisors(n)
+    factor_counts = Counter(factors)
+    if len(factor_counts) == 1:
+        return factors[0] ** (len(factors) - 1) * (factors[0] - 1)
+    result = n
+    for p in factor_counts:
+        result *= p - 1
+        result //= p
     return result

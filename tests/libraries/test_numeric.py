@@ -55,6 +55,7 @@ def test_number_of_divisors():
 
 
 def test_prime_divisors():
+    assert numeric.prime_divisors(4) == [2, 2]
     assert numeric.prime_divisors(37) == [37]
     assert numeric.prime_divisors(220) == [2, 2, 5, 11]
 
