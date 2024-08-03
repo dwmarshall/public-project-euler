@@ -1,6 +1,7 @@
 import generators
 import generators.fibonacci
 import generators.polygonal
+import generators.primes
 
 
 def test_fibonacci_default():
@@ -31,6 +32,12 @@ def test_octagonal():
     o = generators.polygonal.octagonal_numbers()
     first_ten = [next(o) for _ in range(10)]
     assert first_ten == [1, 8, 21, 40, 65, 96, 133, 176, 225, 280]
+
+
+def test_generalized_pentagonal():
+    p = generators.polygonal.pentagonal_numbers(generalized=True)
+    first_ten = [next(p) for _ in range(10)]
+    assert first_ten == [0, 1, 2, 5, 7, 12, 15, 22, 26, 35]
 
 
 def test_pentagonal():
