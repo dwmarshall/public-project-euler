@@ -2,7 +2,7 @@ from math import log
 
 data = []
 
-with open("data/0099_base_exp.txt") as f:
+with open("../data/0099_base_exp.txt") as f:
     for i, s in enumerate(f):
         s = s.strip()
         line_number, base, exponent = i, *s.split(",")

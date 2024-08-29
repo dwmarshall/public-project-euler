@@ -1,6 +1,6 @@
 from functools import cache
 
-with open("data/0067_triangle.txt") as f:
+with open("../data/0067_triangle.txt") as f:
     T = f.read()
 
 triangle = []

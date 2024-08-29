@@ -74,7 +74,7 @@ def solve(g: List[List[int]]) -> None:
             return
 
 
-with open("data/p096_sudoku.txt") as f:
+with open("../data/p096_sudoku.txt") as f:
     for s in f:
         s = s.strip()
         if s.startswith("Grid"):

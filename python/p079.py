@@ -3,7 +3,7 @@ from collections import Counter, defaultdict
 incoming_edges = Counter()
 adjacencies = defaultdict(list)
 
-with open("data/0079_keylog.txt") as f:
+with open("../data/0079_keylog.txt") as f:
     for s in f:
         a, b, c = list(s.strip())
         adjacencies[a].append(b)

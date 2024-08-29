@@ -1,4 +1,4 @@
-f = open("data/names.txt")
+f = open("../data/names.txt")
 s = f.read()
 f.close()
 

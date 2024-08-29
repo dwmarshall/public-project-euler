@@ -1,6 +1,6 @@
 from functools import cache
 
-with open("data/0081_matrix.txt") as f:
+with open("../data/0081_matrix.txt") as f:
     M = f.read()
 
 matrix = []

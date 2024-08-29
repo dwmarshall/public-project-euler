@@ -3,7 +3,7 @@ from itertools import permutations
 from libraries.numeric import is_square
 import string
 
-with open("data/0098_words.txt") as f:
+with open("../data/0098_words.txt") as f:
     s = f.read()
 
 anagrams = defaultdict(set)

@@ -1,6 +1,6 @@
 from libraries.numeric import istriangular
 
-with open("data/0042_words.txt") as f:
+with open("../data/0042_words.txt") as f:
     s = f.read()
 
 triangularWords = 0

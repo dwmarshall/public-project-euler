@@ -2,7 +2,7 @@ from itertools import cycle, product
 import re
 from string import ascii_lowercase
 
-with open("data/0059_cipher.txt") as f:
+with open("../data/0059_cipher.txt") as f:
     s = f.read()
 
 encrypted = [int(x) for x in s.split(",")]
