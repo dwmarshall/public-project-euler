@@ -1,0 +1,2 @@
+requires 'Math::NumSeq::Primes';
+requires 'Perl::Critic';
